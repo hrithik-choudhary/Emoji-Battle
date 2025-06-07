@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emoji Battle</title>
+    <link rel="stylesheet" href="emoji-battle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Emoji Battle</h1>
+
+      <div id="mode-select" class="mode-select">
+        <h2>Choose Your Character</h2>
+        <button id="choose-hrithik" class="mode-btn">Hrithik</button>
+        <button id="choose-sahiba" class="mode-btn">Sahiba</button>
+      </div>
+
+      <div id="game-area" class="game-area hidden">
+        <p>
+          <strong>You are playing as: <span id="player-char"></span></strong>
+        </p>
+        <p>
+          <strong>Opponent: <span id="opponent-char"></span></strong>
+        </p>
+        <p id="turn-indicator">
+          <strong>Turn:</strong> <span id="current-turn"></span>
+        </p>
+
+        <div id="scoreboard" class="scoreboard">
+          <p>Scores:</p>
+          <p>
+            <span id="player-score-label"></span>:
+            <span id="player-score">0</span>
+          </p>
+          <p>
+            <span id="computer-score-label"></span>:
+            <span id="computer-score">0</span>
+          </p>
+          <button
+            id="clear-scores-btn"
+            class="clear-scores-btn"
+            title="Clear Scores"
+            aria-label="Clear Scores"
+          >
+            🧹
+          </button>
+        </div>
+
+        <p>Enter your emoji for this turn:</p>
+        <input
+          type="text"
+          id="emoji-input"
+          maxlength="2"
+          autocomplete="off"
+          autofocus
+        />
+        <button id="submit-emoji" title="Submit Emoji">Submit</button>
+        <p id="feedback" class="feedback"></p>
+
+        <!-- Settings -->
+        <div class="sound-controls">
+          <button id="settings-btn" title="Settings ⚙️" aria-label="Settings">⚙️</button>
+          <div id="settings-panel" class="hidden">
+            <label>
+              Volume:
+              <input
+                type="range"
+                id="volume-control"
+                min="0"
+                max="1"
+                step="0.01"
+                value="1"
+                title="Volume Control"
+              />
+            </label>
+            <div class="toggle-buttons">
+              <button
+                id="toggle-music"
+                title="Toggle Music"
+                class="toggle-btn"
+                aria-label="Toggle Music"
+              >
+                🎵
+              </button>
+              <button
+                id="toggle-sound"
+                title="Toggle Sounds"
+                class="toggle-btn"
+                aria-label="Toggle Sounds"
+              >
+                🔊
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back & Restart Buttons (in-game) -->
+        <div class="button-row">
+          <button id="back-btn" title="Back">🔙</button>
+          <button id="restart-btn" title="Restart">🔄</button>
+        </div>
+      </div>
+
+      <!-- Game Result Section -->
+      <div id="game-result" class="game-result hidden">
+        <h2 id="result-message"></h2>
+        <button id="restart-btn" title="Play Again">🔄</button>
+        <button id="back-btn" title="Back to Character Select">⬅️</button>
+      </div>
+    </div>
+    <div id="hearts-container"></div>
+    <!-- Audio -->
+    <audio id="bg-music" loop src="v.mp3"></audio>
+    <audio id="click-sound" src="button.mp3"></audio>
+
+    <script src="emoji-battle.js"></script>
+  </body>
+</html>
